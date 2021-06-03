@@ -15,7 +15,14 @@ import java.util.Scanner;
         2)System out println
         3)Scanner input NextInt
         4)if comp==Random
-        5)if System out println*/
+        5)if System out println
+
+         Доработки:
+         1) countTrying++ (записываем в переменную количество попыток, затем сделаем вывод "Вы угадали число за "" попыток)
+
+
+        */
+
 public class Main {
 
     public static void main(String[] args) {
@@ -23,12 +30,43 @@ public class Main {
         Random rnd = new Random();
         int compNumber;
         int userNumber;
+        int countTrying = 0;
+        int lowBoard;
+        int highBoard;
+        int level;
 
+        System.out.println("Выберите уровень сложности: \n 1 - Легкий \n 2 - Средний \n 3 - Сложный ");
 
-        compNumber = rnd.nextInt(100) + 1;
+        level = input.nextInt();
 
+        switch (level) {
+            case 1:
+                compNumber = rnd.nextInt(100) + 1;
+                lowBoard = 1;
+                highBoard = 100;
+                System.out.println("Лёгкий уровень сложности");
+                break;
+            case 2:
+                compNumber = rnd.nextInt(500) + 1;
+                lowBoard = 1;
+                highBoard = 500;
+                System.out.println("Средний уровень сложности");
+                break;
+            case 3:
+                compNumber = rnd.nextInt(1000) + 1;
+                lowBoard = 1;
+                highBoard = 1000;
+                System.out.println("Сложный уровень сложности");
+                break;
+            default:
+                compNumber = rnd.nextInt(100) + 1;
+                lowBoard = 1;
+                highBoard = 100;
+                break;
+
+        }
         do {
-            System.out.print("Введите любое число от 1 до 100: ");
+            System.out.print("Введите любое число от " + lowBoard + " до " + highBoard + ": ");
             userNumber = input.nextInt();
 
             if (userNumber > compNumber) {
@@ -36,10 +74,21 @@ public class Main {
             } else if (userNumber < compNumber) {
                 System.out.println("Введите число побольше ");
             }
+            if (compNumber > )
+            countTrying++;
+
         } while (compNumber != userNumber);
 
-        System.out.println("Поздравляем, вы угадали число ");
+        if (countTrying >= 1 && countTrying <= 3) {
+            System.out.println("Да ты гений!");
 
+        } else if (countTrying >= 4 && countTrying <= 6) {
+            System.out.println("Да тебе повезло!");
+        } else {
+
+            System.out.println("Тебе стоит выбрать другую тактику, слишком долго отгадывал( ");
+        }
+        System.out.println("Ты угадал с " + countTrying + " попытки");
 
     }
 }
