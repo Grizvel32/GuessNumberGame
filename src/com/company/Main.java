@@ -75,6 +75,7 @@ public class Main {
 
             } catch (Exception e) {
                 inputResult = false;
+                continue;
             }
             //lowBoard = compNumber - rnd.nextInt(compNumber);
             //highBoard = compNumber + rnd.nextInt(lowBoard);
